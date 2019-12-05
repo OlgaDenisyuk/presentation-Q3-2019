@@ -271,3 +271,12 @@ body {
 @media print {
   .backgrounds {
     background-color: #191919; } }
+
+
+/* My styles */
+.reveal section img {
+  margin: 15px 0px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}

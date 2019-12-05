@@ -1596,3 +1596,74 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+  /* My styles */
+.terms{
+  display: flex;
+  align-items: center;
+}
+.terms .example1{
+  width: 50%;
+  height: auto;
+}
+.reveal .terms ul{
+  width: 40%;
+  margin-left:10%;
+}
+.gdisplay{
+  display: flex;
+  align-items: center;
+}
+.gdisplay span{
+  display: inline-block;
+  margin: 0 10px;
+}
+.wrapper{
+  display: grid;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+.wrapper div{
+  font-size: 20px;
+  padding: 5px;
+  color: rgb(27, 77, 27);
+  background: darkseagreen;
+  border: 1px dotted #17ff2e;
+}
+.wrapper.nbrd{
+  margin-bottom:20px;
+}
+.wrapper.nbrd div{
+  border: none;
+}
+.wrapper.gcol {
+  grid-template-columns: 250px 250px 250px;
+}
+.wrapper.gfr {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.wrapper.gfr2 {
+  grid-template-columns: 1fr 500px 2fr;
+}
+.wrapper.gap {
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+.wrapper.ind{
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+}
+.wrapper.ind .box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.wrapper.ind .box2 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}

@@ -24,10 +24,260 @@
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+			<section class="slides">
+				<section data-background-image="images/grid-bg.png" data-background-size="51px" data-background-repeat="repeat">
+					<img src="images/grid_im.png" alt="CSS Grid Layout">
+					<h1>CSS Grid Layout</h1>
+				</section>
+				<section>
+					<h2>What is a grid?</h2>
+					<p class="fragment visible">The CSS Grid Layout Module offers a grid-based 
+						layout system, with rows and columns, making it easier to 
+						design web pages without having to use floats and positioning.</p>
+						 <aside class="notes">Unlike Flexible Box Layout, which is 
+							 single-axis–oriented, Grid Layout is optimized for 
+							 2-dimensional layouts: those in which alignment of content 
+							 is desired in both dimensions.</aside>
+				</section>
+				<section>
+					<h2>Basic concepts</h2>
+					<div class="terms">
+						<img class="example1" src="images/example1.jpg" alt="Example1">
+						<ul>
+							<li class="fragment visible" data-fragment-index="0">Grid container</li>
+							<li class="fragment visible" data-fragment-index="1" style="color:#ff1641">Grid lines</li>
+							<li class="fragment visible" data-fragment-index="2" style="color:#26a59a">Grid track</li>
+							<li class="fragment visible" data-fragment-index="3" style="color:#ff8159">Grid cell</li>
+							<li class="fragment visible" data-fragment-index="4" style="color:#ffd245">Grid area</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h2>Display Property</h2>
+					<section>
+					<aside class="notes">An HTML element becomes a grid 
+						container when its display property is set to grid or inline-grid.</aside>
+						<div class="gdisplay">
+<pre>
+<code class="hljs">
+.grid-container {
+	display: grid;
+}
+</code>	
+</pre>
+<span>or</span>	
+<pre>
+<code class="hljs">
+.grid-container {
+	display: inline-grid;
+}
+</code>	
+</pre>	
+<aside class="notes">All direct children of the grid container automatically become grid items.</aside>			
+						</div>
+				</section>	
+					<section>
+<pre>
+<code class="hljs">						
+<div class="wrapper">
+	<div>One</div>
+	<div>Two</div>
+	<div>Three</div>
+	<div>Four</div>
+	<div>Five</div>
+</div>
+</code>
+</pre>
+<pre>
+<code class="hljs">						
+.wrapper {
+	display: grid;
+}
+</code>
+</pre>
+</section>
+<section>
+<div class="wrapper nbrd">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+</div>
+<div class="wrapper fragment visible">
+	<div>One</div>
+	<div>Two</div>
+	<div>Three</div>
+	<div>Four</div>
+	<div>Five</div>
+</div>
+					</section>
+				</section>
+				<section>
+					<h2>Grid Tracks</h2>
+					<ul>
+						<li>grid-template-columns</li>
+						<li>grid-template-rows</li>
+					</ul>
+<pre class="fragment visible">
+<code class="hljs">						
+.wrapper {
+	display: grid;
+	grid-template-columns: 300px 300px 300px;
+}	
+</code>
+</pre>	
+<div class="wrapper gcol fragment visible">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+</div>
+				</section>
+				<section>
+					<h2>The fr Unit</h2>
+					<section>
+					<aside class="notes">
+						Tracks can be defined using any length unit. 
+						Grid also introduces an additional length unit to help us create
+						 flexible grid tracks. The new fr unit represents a fraction of 
+						 the available space in the grid container. The next grid definition 
+						 would create three equal width tracks that grow and shrink according
+						  to the available space.
+					</aside>
+<pre>
+<code class="hljs">						
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+</code>
+</pre>
+<div class="wrapper gfr fragment visible">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+</div>
+				</section>
+<section>
+<pre>
+<code class="hljs">						
+	.wrapper {
+		display: grid;
+		grid-template-columns: 1fr 500px 2fr;
+	}
+</code>
+</pre>
+<div class="wrapper gfr2">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+</div>
+</section>					
+				</section>
+				<section>
+					<h2>Repeat()</h2>
+					<aside class="notes">Large grids with many tracks can use the repeat() notation, to repeat all or a section of the track listing.
+						 For example the grid definition:
+					</aside>					
+<pre>
+<code class="hljs">						
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+</code>
+</pre>
+<div class="fragment visible" style="transform: rotate(90deg);">
+<span>=></span>
+</div>
+<pre class="fragment visible">
+<code class="hljs">						
+.wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+		}
+</code>
+</pre>				
+				</section>
+				<section>
+					<h2>Grid lines</h2>
+					<img src="images/grid_lines.png" alt="Grid lines">
+				</section>
+				<section>
+					<section>
+						<h2>Grid area</h2>
+						<p><span style="color: #ffd245;">grid-area:</span> grid-row-start, grid-column-start,<br> grid-row-end, grid-column-end</p>
+						<div class="fragment visible">
+							<img src="images/code2.jpg" alt="Grid lines">
+						</div>
+					</section>
+					<section>
+						<span style="color: #ffd245;">grid-area:</span> 1 / 3 / 5 / 4;<br><aside class="notes">https://basicweb.ru/css/css_pr_grid-area.php</aside>
+						<span style="color: #ffd245;">grid-area:</span> row2 / span 4 / row4;<br>
+						<span style="color: #ffd245;">grid-area:</span> line-name / line-name / line-name / line-name;
+					</section>
+					<section>
+						<img src="images/area.png" alt="Grid area">
+					</section>
+				</section>
+				<section>
+					<h2>Gutters</h2>
+					<section>
+					<ul>
+						<li>grid-column-gap</li>
+						<li>grid-row-gap</li>
+					</ul>
+					<div class="fragment visible">
+					<p>or</p>
+					<ul>
+						<li>grid-gap</li>
+					</ul>
+					</div>
+				</section>
+				<section>
+<pre>
+<code>			
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+</code>
+</pre>
+<div class="wrapper gap">
+		<div>One</div>
+		<div>Two</div>
+		<div>Three</div>
+		<div>Four</div>
+		<div>Five</div>
+</div>		
+				</section>
+				</section>
+				<section>
+					<h2>Z-index</h2>
+					<div class="wrapper ind">
+						<div class="box box1">One</div>
+						<div class="box box2">Two</div>
+						<div class="box box3">Three</div>
+						<div class="box box4">Four</div>
+						<div class="box box5">Five</div>
+					</div>
+				</section>
+				<section>
+					<h2>Grid vs Flexbox</h2>
+					<aside class="notes">Flexbox technology is designed to develop one-dimensional layouts,
+						 which are a description of the location of elements in a row or column.
+						  And Grid technology is designed to develop two-dimensional layouts,
+						   which include both rows and columns.</aside>
+				</section>
+			</section>
 		</div>
 
 		<script src="js/reveal.js"></script>
